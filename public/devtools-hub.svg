@@ -1,0 +1,28 @@
+<svg
+  width="300"
+  height="100"
+  viewBox="0 0 300 100"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="redShine" gradientTransform="rotate(45)">
+      <stop offset="0%" stop-color="#ff0000" />
+      <stop offset="50%" stop-color="#ff4d4d" />
+      <stop offset="100%" stop-color="#ff0000" />
+    </linearGradient>
+  </defs>
+  <text
+    x="50%"
+    y="55%"
+    font-family="monospace"
+    font-size="36"
+    fill="url(#redShine)"
+    stroke="url(#redShine)"
+    stroke-width="2"
+    text-anchor="middle"
+    font-weight="bold"
+  >
+    DevToolsOP
+  </text>
+</svg>
