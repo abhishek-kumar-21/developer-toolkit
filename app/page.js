@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { useEffect } from "react";
-import Dashboard from "./(dashboard)/page";
+import Dashboard from "./dashboard/page";
 import MainPage from "@/components/MainPage";
 import ScrollToTop from "@/components/ScrollToTop";
 
