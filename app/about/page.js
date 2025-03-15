@@ -15,7 +15,7 @@ const About = () => {
                     With a keen eye for design and a commitment to clean, efficient code, I built this platform to be both functional and visually stunning. Every tool has been carefully crafted to meet the needs of modern developers.
                 </p>
                 <p className="text-xl font-semibold">
-                    – Abhishek Kumar, CSE '26
+                    – Abhishek Kumar, CSE &apos;26
                 </p>
             </div>
         </div>
