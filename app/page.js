@@ -1,58 +1,51 @@
-"use client"
+"use client";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Dashboard from "./(dashboard)/page";
 import MainPage from "@/components/MainPage";
-import NotFound from "@/app/not-found";
 import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
 
-  // const dashboardRef = useRef(null); // for scrolling to the Dashboard section when clicked
-
-  // const scrollToSection = () => {
-  //   if (dashboardRef.current) {
-  //     dashboardRef.current.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // };
-
+  // Optimized scroll function
   const scrollToSection = (targetId) => {
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
+  const handleScroll = () => scrollToSection("dashboard");
 
   return (
-    <div className="bg-black">
-
-      <Navbar scrollToSection={() => scrollToSection("dashboard")} />
-      <MainPage scrollToSection={() => scrollToSection("dashboard")} />
+    <div className="bg-black relative min-h-screen">
+      {/* Navbar & Main Page */}
+      <Navbar scrollToSection={handleScroll} />
+      <MainPage scrollToSection={handleScroll} />
 
       {/* Dashboard Section */}
       <section id="dashboard" className="min-h-screen">
         <Dashboard />
       </section>
 
+      {/* Footer */}
       <Footer title={"Developer Toolkit"} />
 
-
-      {/* Handling background Image */}
+      {/* Background Image */}
       <div className="fixed inset-0">
         <Image
           src="/bg.jpg"
-          alt=""
-          layout="fill"
+          alt="Background"
+          fill={true}  // ✅ Fixed for Next.js 13+
           objectFit="cover"
           className="opacity-30 max-h-screen"
         />
       </div>
 
-      <ScrollToTop/>
-
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 }

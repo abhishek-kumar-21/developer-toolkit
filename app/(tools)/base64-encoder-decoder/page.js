@@ -1,36 +1,34 @@
-import React from 'react'
+import React from 'react';
 import Base64EncoderDecoder from './Base64EncoderDecoder';
 import Image from 'next/image';
 import ScrollToTop from '@/components/ScrollToTop';
 
-const page = () => {
+export const metadata = {
+    title: 'Base64 Encoder Decoder',
+    description: "This is an easy-to-use Base64 encoding and decoding website. Feel free to use it.",
+};
+
+const Base64Page = () => {
     return (
-        <div className='bg-black relative'>
+        <div className="bg-black relative min-h-screen">
             <div className="relative z-10">
                 <Base64EncoderDecoder />
             </div>
 
-            {/* Handling background Image */}
-            <div className="fixed inset-0">
+            {/* Background Image */}
+            <div className="fixed inset-0 -z-10">
                 <Image
                     src="/base64-encoder-decoder.webp"
-                    alt=""
-                    layout="fill"
-                    objectFit="cover"
-                    className="opacity-22 max-h-screen"
+                    alt="Base64 Encoder Background"
+                    fill
+                    className="object-cover opacity-20 max-h-screen"
+                    priority
                 />
             </div>
 
-            <ScrollToTop/>
+            <ScrollToTop />
         </div>
-    )
-}
-
-export default page
-
-export const metadata = {
-    title: 'Base64 Encoder Decoder',
-    description: "This is a easy to use Base64 encoding and decoding website, feel free to use.",
+    );
 };
 
-// this is made as server component to have the metadata
+export default Base64Page;

@@ -1,17 +1,15 @@
-import React from 'react'
-import RandomColorGenerator from './RandomColorGenerator.js';
+import React from "react";
+import RandomColorGenerator from "./RandomColorGenerator";
 
-const page = () => {
-    return (
-        <RandomColorGenerator />
-    )
-}
-
-export default page
-
-export const metadata = {
-    title: 'Random Color Generator',
-    description: "This is a easy to use random color generator website, feel free to use.",
+const Page = () => {
+    return <RandomColorGenerator />;
 };
 
-// this is made as server component to have the metadata
+export default Page;
+
+export const metadata = {
+    title: "Random Color Generator",
+    description: "This is an easy-to-use random color generator website. Feel free to use it.",
+};
+
+// This is a server component to have the metadata

@@ -14,14 +14,16 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Developer Toolkit",
-  description: "This is a dashboard having multiple developer tools, feel free to use.",
+  description: "A powerful developer toolkit with multiple essential tools to streamline your workflow.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased `}>
-        {children}
+      <head />
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col dark:bg-gray-900 bg-gray-100`}>
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 import ToolCard from '@/components/ToolCard';
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
 const tools = [
   {
@@ -39,7 +40,6 @@ const tools = [
   },
 ];
 
-
 const Dashboard = () => {
   return (
     <div className="mx-auto py-20 min-h-screen w-[80vw]">
@@ -60,4 +60,4 @@ const Dashboard = () => {
   );
 }
 
-export default Dashboard
+export default Dashboard;

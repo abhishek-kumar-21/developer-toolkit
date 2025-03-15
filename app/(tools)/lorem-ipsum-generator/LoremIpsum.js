@@ -1,12 +1,11 @@
 "use client"
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 
-
 export default function Home() {
-    const [wordCount, setWordCount] = useState(0) // store input number of words
+    const [wordCount, setWordCount] = useState("") // store input number of words
     const [generatedText, setGeneratedText] = useState("") // store output text
 
     const loremWords = [
@@ -18,54 +17,38 @@ export default function Home() {
         "ex", "ea", "commodo", "consequat"
     ];
 
-
-    // function to generate text with random selection of words from loremWords
+    // Function to generate lorem ipsum text
     const generateLoremIpsum = () => {
-        // Parse the wordCount to an integer
         let count = parseInt(wordCount, 10);
 
-        // Check if the parsed count is NaN or less than or equal to 0
         if (isNaN(count) || count <= 0) {
-            toast("Please enter a valid positive number!");
+            toast.error("Please enter a valid positive number!");
             return;
         }
 
-        // Limit the count to a maximum of 100,000
-        count = Math.min(100000, count);
+        count = Math.min(100000, count); // Limit max words
 
-        let loremText = [];
+        const loremText = Array.from({ length: count }, () =>
+            loremWords[Math.floor(Math.random() * loremWords.length)]
+        ).join(" ");
 
-        for (let i = 0; i < count; i++) {
-            // Select a random word from the array
-            const randomIndex = Math.floor(Math.random() * loremWords.length);
-            loremText.push(loremWords[randomIndex]);
-        }
+        setGeneratedText(loremText);
+        toast.success("Text generated!");
+    };
 
-        let text = loremText.join(" "); // Convert array to a string
-        setGeneratedText(text);
-
-        toast("Text generated!")
-    }
-
-
-    // function to download text as .txt file
+    // Function to download text as .txt file
     const downloadTextFile = () => {
-        // Create a blob conataing the text
         const blob = new Blob([generatedText], { type: "text/plain" });
-
-        // Create a temporary anchor element
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = "generated-text.txt"; // Filename
+        link.download = "generated-text.txt";
 
-        // Append the link to the document, trigger click, and remove
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
 
-        toast("Text downloaded!")
-    }
-
+        toast.success("Text downloaded!");
+    };
 
     return (
         <div>
@@ -76,58 +59,75 @@ export default function Home() {
 
                 <div className="input flex flex-col justify-end items-center gap-5">
                     <input
-                        type="text"
+                        type="number"
+                        min="1"
                         placeholder="Enter number of words"
-                        className="border-b-2 outline-0 text-xl md:text-3xl text-white text-center"
+                        className="border-b-2 outline-0 text-xl md:text-3xl text-white text-center bg-transparent"
+                        value={wordCount}
                         onChange={(e) => setWordCount(e.target.value)}
                     />
 
-                    <button onClick={generateLoremIpsum} type="button" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2 hover:cursor-pointer">Generate Text</button>
+                    <button
+                        onClick={generateLoremIpsum}
+                        type="button"
+                        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2 hover:cursor-pointer"
+                    >
+                        Generate Text
+                    </button>
                 </div>
             </div>
 
-
             <div className="second w-[80vw] mx-[10vw] mt-5 pb-20">
-                {
-                    generatedText &&
+                {generatedText && (
                     <div className="text-white bg-[#232121] rounded flex flex-col relative">
-
-                        {/* Buttons section */}
+                        {/* Buttons Section */}
                         <div className="btn-section sticky top-0 left-0 flex justify-around bg-[#3c3c3c]">
                             {/* Copy Button */}
                             <button
                                 onClick={() => {
-                                    navigator.clipboard.writeText(generatedText)
-                                    toast("Text copied!")
-                                }
-                                }
-                                className=" text-white hover:cursor-pointer flex gap-1 justify-center p-2">
-                                <img src="copy.svg" alt="" className="invert-100" />
+                                    navigator.clipboard.writeText(generatedText);
+                                    toast.success("Text copied!");
+                                }}
+                                className="text-white hover:cursor-pointer flex gap-1 justify-center p-2"
+                            >
+                                <Image
+                                    src="/copy.svg"
+                                    alt="Copy"
+                                    width={20}
+                                    height={20}
+                                    className="invert"
+                                />
                                 <span>Copy Text</span>
                             </button>
 
                             {/* Download Button */}
                             <button
-                                onClick={() => downloadTextFile()}
-                                className=" text-white hover:cursor-pointer flex gap-1 justify-center p-2">
-                                <img src="download.svg" alt="" />
+                                onClick={downloadTextFile}
+                                className="text-white hover:cursor-pointer flex gap-1 justify-center p-2"
+                            >
+                                <Image
+                                    src="/download.svg"
+                                    alt="Download"
+                                    width={20}
+                                    height={20}
+                                />
                                 <span>Download Text</span>
                             </button>
                         </div>
 
                         <span className="p-3">{generatedText}</span>
                     </div>
-                }
+                )}
             </div>
 
-            <Footer title={"Lorem Ipsum Generator"}/>
+            <Footer title={"Lorem Ipsum Generator"} />
 
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
                 hideProgressBar={false}
                 newestOnTop={true}
-                closeOnClick={true}
+                closeOnClick
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
