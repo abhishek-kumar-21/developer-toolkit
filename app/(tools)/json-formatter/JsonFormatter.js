@@ -71,7 +71,7 @@ const JsonFormatter = () => {
                 {formattedJson && (
                     <div className="text-white bg-[#232121] rounded flex flex-col relative max-w-[80vw] overflow-x-auto">
                         {/* Buttons section */}
-                        <div className="btn-section sticky top-0 flex justify-around bg-[#3c3c3c] p-2">
+                        <div className="btn-section sticky top-0 left-0 flex justify-around bg-[#3c3c3c] p-2">
                             {/* Copy Button */}
                             <button
                                 onClick={() => {

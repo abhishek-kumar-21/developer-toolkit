@@ -16,7 +16,7 @@ const Base64Page = () => {
             </div>
 
             {/* Background Image */}
-            <div className="fixed inset-0 -z-10">
+            <div className="fixed inset-0">
                 <Image
                     src="/base64-encoder-decoder.webp"
                     alt="Base64 Encoder Background"

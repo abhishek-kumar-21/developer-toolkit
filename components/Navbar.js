@@ -4,16 +4,16 @@ import Image from "next/image";
 
 const Navbar = ({ scrollToSection }) => {
     return (
-        <nav className="flex md:flex-row flex-col justify-between items-center py-3 px-6 bg-black bg-opacity-75 backdrop-blur-md z-50 sticky top-0">
+        <nav className="flex md:flex-row flex-col justify-between items-center pt-3 pb-0.5 px-6 bg-opacity-75 backdrop-blur-xs z-50 sticky top-0">
             {/* Logo */}
             <Link href="/" className="flex items-center">
                 <Image
                     src="/devtools-hub.svg"
                     alt="DevTools Hub"
-                    width={160}
-                    height={50}
+                    width={300}
+                    height={100}
                     priority
-                    className="w-auto h-10"
+                    className="w-auto h-18"
                 />
             </Link>
 
@@ -39,7 +39,7 @@ const Navbar = ({ scrollToSection }) => {
                 {/* Try Tools Button */}
                 <button
                     onClick={() => scrollToSection("dashboard")}
-                    className="text-white text-lg px-4 py-2 border-2 rounded-lg transition-all duration-300 hover:bg-sky-500 hover:scale-105"
+                    className="text-white text-lg px-4 py-2 border-2 rounded-lg transition-all duration-300 hover:bg-sky-500 hover:scale-105 hover:cursor-pointer"
                 >
                     Try Tools
                 </button>

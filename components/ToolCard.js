@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ToolCard = ({ imageSrc, title, description }) => {
-    const path = `/${imageSrc.split(".")[0]}`; // Ensures the correct URL format
+    const path = `${imageSrc.split(".")[0]}`; // Ensures the correct URL format
 
     return (
         <div className="max-w-sm h-[380px] bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 overflow-hidden">

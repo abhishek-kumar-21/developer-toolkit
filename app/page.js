@@ -31,14 +31,14 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <Footer title={"Developer Toolkit"} />
+      <Footer title="Developer Toolkit" />
 
       {/* Background Image */}
       <div className="fixed inset-0">
         <Image
           src="/bg.jpg"
           alt="Background"
-          fill={true}  // ✅ Fixed for Next.js 13+
+          fill={true}
           objectFit="cover"
           className="opacity-30 max-h-screen"
         />

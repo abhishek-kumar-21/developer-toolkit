@@ -40,10 +40,12 @@ const MainPage = ({ scrollToSection }) => {
                 <div className="flex flex-wrap justify-center gap-4">
                     <button
                         onClick={() => scrollToSection("dashboard")}
-                        className="rounded-lg px-6 py-3 font-medium border-2 text-white transition-all duration-300 hover:bg-sky-500 hover:scale-105"
+                        className="rounded-lg px-6 py-3 font-medium border-2 text-white transition-all duration-300 hover:bg-sky-500 hover:scale-105 hover:cursor-pointer"
                     >
                         Try Now
                     </button>
+
+
                 </div>
             </div>
         </div>

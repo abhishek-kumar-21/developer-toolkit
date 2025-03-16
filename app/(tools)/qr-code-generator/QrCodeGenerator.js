@@ -24,7 +24,7 @@ const QrCodeGenerator = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white">
+        <div className="min-h-screen flex flex-col items-center justify-center  text-white">
             <div className="w-full max-w-lg p-5 flex flex-col items-center gap-5">
                 <h1 className="text-3xl md:text-5xl font-bold text-center">QR Code Generator</h1>
 
@@ -59,7 +59,7 @@ const QrCodeGenerator = () => {
                 {input && (
                     <button
                         onClick={downloadQRCode}
-                        className="bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-6 py-3 transition-all duration-200"
+                        className="bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-6 py-3 transition-all duration-200 cursor-pointer"
                     >
                         Download QR Code
                     </button>

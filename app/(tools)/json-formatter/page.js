@@ -16,7 +16,7 @@ const Page = () => {
       </div>
 
       {/* Handling background image */}
-      <div className="fixed inset-0 -z-10">
+      <div className="fixed inset-0">
         <Image
           src="/json-formatter.webp"
           alt="JSON Formatter Background"

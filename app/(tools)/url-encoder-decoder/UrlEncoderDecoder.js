@@ -63,17 +63,17 @@ const UrlEncoderDecoder = () => {
                 />
 
                 {/* Buttons */}
-                <div className="flex gap-3">
+                <div className="flex gap-2 justify-center">
                     <button
                         onClick={encodeURL}
-                        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center"
+                        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2 hover:cursor-pointer"
                     >
                         Encode
                     </button>
 
                     <button
                         onClick={decodeURL}
-                        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center"
+                        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2 hover:cursor-pointer"
                     >
                         Decode
                     </button>
@@ -81,16 +81,16 @@ const UrlEncoderDecoder = () => {
 
                 {/* Display encoded/decoded text */}
                 {output && (
-                    <div className="max-h-[50vh] overflow-y-auto text-white bg-[#232121] rounded-lg flex flex-col relative max-w-[80vw] p-3">
+                    <div className="md:max-h-[53vh] max-h-[62vh] overflow-y-auto text-white bg-[#232121] rounded flex flex-col relative max-w-[80vw] overflow-x-auto">
                         {/* Buttons section */}
-                        <div className="sticky top-0 left-0 flex justify-around bg-[#3c3c3c] p-2">
+                        <div className="btn-section sticky top-0 left-0 flex justify-around bg-[#3c3c3c]">
                             {/* Copy Button */}
                             <button
                                 onClick={() => {
                                     navigator.clipboard.writeText(output);
                                     toast.success("Text copied!");
                                 }}
-                                className="text-white hover:cursor-pointer flex gap-1 justify-center"
+                                className="text-white hover:cursor-pointer flex gap-1 justify-center p-2"
                             >
                                 <img src="/copy.svg" alt="Copy" className="invert-100 w-5 h-5" />
                                 <span>Copy Text</span>
@@ -99,14 +99,14 @@ const UrlEncoderDecoder = () => {
                             {/* Download Button */}
                             <button
                                 onClick={downloadTextFile}
-                                className="text-white hover:cursor-pointer flex gap-1 justify-center"
+                                className="text-white hover:cursor-pointer flex gap-1 justify-center p-2"
                             >
                                 <img src="/download.svg" alt="Download" className="w-5 h-5" />
                                 <span>Download Text</span>
                             </button>
                         </div>
 
-                        <span className="break-words">{output}</span>
+                        <span className="p-3 break-words">{output}</span>
                     </div>
                 )}
             </div>
