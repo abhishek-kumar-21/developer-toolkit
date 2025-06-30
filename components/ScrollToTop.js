@@ -14,38 +14,12 @@ const ScrollToTop = () => {
     };
 
     // Scroll to top of the page
-    const customScrollToTop = () => {
-        const targetPosition = 0;
-        const startPosition = window.pageYOffset;
-        const distance = startPosition - targetPosition;
-        const duration = 300; // Duration in milliseconds
-        let start = null;
-
-        const easeInOutQuad = (time, from, distance, duration) => {
-            time /= duration / 2;
-            if (time < 1) return (distance / 2) * time * time + from;
-            time--;
-            return (-distance / 2) * (time * (time - 2) - 1) + from;
-        };
-
-        const animation = currentTime => {
-            if (start === null) start = currentTime;
-            const timeElapsed = currentTime - start;
-            const run = easeInOutQuad(timeElapsed, startPosition, -distance, duration);
-            window.scrollTo(0, run);
-            if (timeElapsed < duration) requestAnimationFrame(animation);
-        };
-
-        requestAnimationFrame(animation);
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth", // Smooth scroll
+        });
     };
-
-    // Scroll to top of the page
-    // const scrollToTop = () => {
-    //     window.scrollTo({
-    //         top: 0,
-    //         behavior: "auto", // Instant scroll
-    //     });
-    // };
 
     useEffect(() => {
         window.addEventListener("scroll", toggleVisibility);
@@ -56,7 +30,7 @@ const ScrollToTop = () => {
     return (
         isVisible && (
             <button
-                onClick={customScrollToTop}
+                onClick={scrollToTop}
                 className="fixed bottom-17 right-4 bg-blue-600 text-white font-bold rounded-[50%] p-2 cursor-pointer shadow-2xs z-1000"
             >
                 <svg

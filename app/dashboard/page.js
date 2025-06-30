@@ -42,7 +42,7 @@ const tools = [
 
 const Dashboard = () => {
   return (
-    <div className="mx-auto py-20 min-h-screen w-[80vw]">
+    <div  id="dashboard" className="mx-auto py-20 min-h-screen w-[80vw]">
       <h2 className="text-3xl font-semibold my-6 text-white text-center">Developer Tools Dashboard</h2>
 
       <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
